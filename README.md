@@ -5,7 +5,7 @@ I made this Q&A site for practicing Django.
 ```
 git clone https://github.com/amakusa0/QA_site.git
 ```
-Create **./QA_site/local_settings.py** which contains SECRET_KEY.
+Create **./QA_site/local_settings.py** which contains your SECRET_KEY.
 ```
 cd QA_site
 python manage.py migrate
