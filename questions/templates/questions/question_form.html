@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Index{% endblock %}
+{% block content %}
+
+<h1>Your Question</h1>
+
+<form action="{% url 'questions:PostQuestion' %}" method="post">
+  {% csrf_token %}
+  <table>
+    {{ question_form.as_table}}
+  </table>
+  <input type="submit" value="post">
+</form>
+
+{% endblock %}

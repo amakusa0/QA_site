@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Index{% endblock %}
+{% block content %}
+
+<h1>Post Question</h1>
+<a href="{% url 'questions:QuestionFrom' %}">Click here</a><br>
+Login is necessary.
+
+<br><br><hr><br>
+
+<h1>Questions</h1>
+<h2>Unsolved</h2>
+{% if unsolved_questions %}
+  {% for question in unsolved_questions %}
+    <table border="1" bgcolor="#FFEBCC">
+      <tr>
+        <th colspan="2"><a href="{% url 'questions:QustionDetail' question.id %}">{{question.title}}</a></th>
+      </tr>
+      <tr>
+        <td>votes</td>
+        <td>{{question.votes}}
+      </tr>
+      <tr>
+        <td>answers</td>
+        <td>{{question.numAnswer}}</td>
+      </tr>
+      <tr>
+        <td>pub date</td>
+        <td>{{question.pub_date}}</td>
+      </tr>
+    </table><br>
+  {% endfor %}
+{% else %}
+  <p>No questions.</p>
+{% endif %}
+
+<br>
+
+<h2>Solved</h2>
+{% if solved_questions %}
+  {% for question in solved_questions %}
+    <table border="1" bgcolor="#C7EBCD">
+      <tr>
+        <th colspan="2"><a href="{% url 'questions:QustionDetail' question.id %}">{{question.title}}</a></th>
+      </tr>
+      <tr>
+        <td>votes</td>
+        <td>{{question.votes}}
+      </tr>
+      <tr>
+        <td>answers</td>
+        <td>{{question.numAnswer}}</td>
+      </tr>
+      <tr>
+        <td>pub date</td>
+        <td>{{question.pub_date}}</td>
+      </tr>
+    </table>
+    <br>
+  {% endfor %}
+{% else %}
+  <p>No questions.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>QA site</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div style="padding:30px;background-color:#d8d8d8;"align="center">
+      <h1><a href="{% url "questions:ProfileDetail" request.user %}">{{request.user}}</a></h1>
+      <table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333" bgcolor="#b8b8b8
+">
+      <tr>
+        <td align="center"><a href="{% url 'accounts:signup' %}">signup</a></td>
+        <td align="center"><a href="/accounts/login">login</a></td>
+        <td align="center"><a href="/accounts/logout">logout</a></td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center"><a href="{% url 'questions:index' %}">Question List</a></td>
+      </tr>
+      </table>
+    </div>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

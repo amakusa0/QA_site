@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Index{% endblock %}
+{% block content %}
+
+<h1>data</h1>
+<ul>
+  <li>username: {{profile.user.username}}</li>
+  <li>get Question votes: {{profile.question_votes}}</li>
+  <li>get Answer votes: {{profile.answer_votes}}</li>
+</ul>
+
+<h1>Questions</h1>
+{% if questions %}
+  <table border="1" width=300>
+  <tr>
+  <th>quetion title</th>
+  <th>votes</th>
+  </tr>
+  {% for question in questions %}
+  <tr>
+    <td><a href="{% url 'questions:QustionDetail' question.id %}">{{question.title}}</a></td>
+    <td>{{question.votes}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+{% else %}
+  No data
+{% endif %}
+
+
+
+
+<h1>Answers</h1>
+{% if answers %}
+  <table border="1" width=300>
+  <tr>
+  <th>quetion title</th>
+  <th>votes</th>
+  </tr>
+  {% for answer in answers %}
+  <tr>
+    <td><a href="{% url 'questions:QustionDetail' answer.question.id %}">{{answer.question.title}}</a></td>
+    <td>{{answer.votes}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+{% else %}
+  No data
+{% endif %}
+
+{% endblock %}
